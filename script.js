@@ -32,15 +32,18 @@ document.querySelector("#todoForm").addEventListener('submit', function(event) {
     const li = document.querySelectorAll("li");
 
     for(let i=0; i < li.length; i++) {
+
       li[i].addEventListener("click", function(e) {
         if (e.target.getAttribute("class") === "checkCompleted") {
+
           if (todoList[i]["status"] === "active") {
             todoList[i]["status"] = "done";
             buildList();
-            } else if (todoList[i]["status"] === "done") {
+          } else if (todoList[i]["status"] === "done") {
             todoList[i]["status"] = "active";
             buildList();
-            }  
+          }
+            
         } else if (e.target.getAttribute("class") === "itemDelete") {
           todoList.splice([i],1)
           buildList();
